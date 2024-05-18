@@ -4,12 +4,12 @@ import { initialize } from "./initialize";
 import { getSalesItem } from "./get-sales-item";
 import { logSalesItem } from "./log-sales-item";
 
-export const main = () => {
+export const main = async () => {
   const db = initialize();
-  migrate(db);
-  seed(db);
+  await migrate(db);
+  await seed(db);
 
-  const user = getSalesItem(db);
+  const user = await getSalesItem(db);
 
   logSalesItem(user);
 };

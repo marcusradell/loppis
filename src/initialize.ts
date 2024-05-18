@@ -1,5 +1,9 @@
-import Database, { Database as LibsqlDb } from "libsql";
+import { Client, createClient } from "@libsql/client";
 
-export type Db = LibsqlDb;
+export type Db = Client;
 
-export const initialize = () => new Database("data.db");
+export const initialize = () =>
+  createClient({
+    url: process.env.TURSO_DATABASE_URL as string,
+    authToken: process.env.TURSO_AUTH_TOKEN as string,
+  });
