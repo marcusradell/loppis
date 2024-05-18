@@ -1,15 +1,11 @@
-import { migrate } from "./migrate";
-import { seed } from "./seed";
-import { initialize } from "./initialize";
-import { getSalesItem } from "./get-sales-item";
-import { logSalesItem } from "./log-sales-item";
+import { createDb } from "./db/db";
+import { getSalesItems } from "./get-sales-items";
+import { logSalesItems } from "./log-sales-item";
 
 export const main = async () => {
-  const db = initialize();
-  await migrate(db);
-  await seed(db);
+  const db = createDb();
 
-  const user = await getSalesItem(db);
+  const salesItems = await getSalesItems(db);
 
-  logSalesItem(user);
+  logSalesItems(salesItems);
 };

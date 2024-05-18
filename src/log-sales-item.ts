@@ -1,5 +1,5 @@
-import { SalesItem } from "./get-sales-item";
+import { SalesItem } from "./get-sales-items";
 
-export function logSalesItem(user: SalesItem) {
-  console.log(`Name: ${user.name}, price: ${user.price}`);
+export function logSalesItems(salesItems: SalesItem[]) {
+  salesItems.forEach((salesItem) => console.log(salesItem));
 }
