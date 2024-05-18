@@ -2,9 +2,9 @@
   "name": "loppis",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node dist/index.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
